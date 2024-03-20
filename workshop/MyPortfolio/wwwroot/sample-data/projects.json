@@ -1,0 +1,22 @@
+[
+    {
+      "title": "A project",
+      "description": "트위터 클론코딩",
+      "url": "https://twitter.com/home"
+    },
+    {
+      "title": "B project",
+      "description": "{{project-description}}",
+      "url": "{{project-url}}"
+    },
+    {
+      "title": "C project",
+      "description": "{{project-description}}",
+      "url": "{{project-url}}"
+    },
+    {
+      "title": "D project",
+      "description": "{{project-description}}",
+      "url": "{{project-url}}"
+    }
+  ]
