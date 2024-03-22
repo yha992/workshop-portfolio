@@ -1,10 +1,5 @@
 @using System.Net.Http.Json
 @using MyPortfolio.Models
-@inject HttpClient Http
-
-@inject HttpClient Http
-
-@* ⬇️⬇️⬇️ Add codes below ⬇️⬇️⬇️ *@
 
 <section class="dark" id="home">
     @if (heroHome is not null)
@@ -29,17 +24,19 @@
     </div>
 </section>
 
-@* ⬇️⬇️⬇️ Add codes below ⬇️⬇️⬇️ *@
-
 @code {
     private SiteProperties? property;
     private HeroImage? heroHome;
+
+    [Parameter, EditorRequired]
+    public HttpClient? Http { get; set; } = default!;
+
+    [Parameter, EditorRequired]
+    public List<HeroImage> HeroImages { get; set; } = default!;
     
     protected override async Task OnInitializedAsync()
     {
         property = await Http.GetFromJsonAsync<SiteProperties>("sample-data/siteproperties.json");
-
-        var heros = await Http.GetFromJsonAsync<List<HeroImage>>("sample-data/heroimages.json");
-        heroHome = heros.SingleOrDefault(h => h.Name == "home");
+        heroHome = HeroImages.SingleOrDefault(h => h.Name == "home");
     }
 }
